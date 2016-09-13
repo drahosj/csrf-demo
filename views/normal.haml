@@ -1,0 +1,11 @@
+%p
+  Do you want to be pwned?
+
+%p
+  Hint: You really don't. Don't submit this with "yes".
+
+%form{action: "/", method: "POST"}
+  %label{for: "r1"} No
+  %input{type: "radio", name: "pwned", value: "no", checked: true, id: "r1"}
+  %label{for: "r2"} Yes
+  %input{type: "radio", name: "pwned", value: "yes", checked: true, id: "r2"}
