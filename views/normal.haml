@@ -4,8 +4,10 @@
 %p
   Hint: You really don't. Don't submit this with "yes".
 
-%form{action: "/", method: "POST"}
+%form{action: "/submit", method: "GET"}
   %label{for: "r1"} No
-  %input{type: "radio", name: "pwned", value: "no", checked: true, id: "r1"}
+  %input#r1{type: "radio", name: "pwned", value: "no", checked: true}
   %label{for: "r2"} Yes
-  %input{type: "radio", name: "pwned", value: "yes", checked: true, id: "r2"}
+  %input#r2{type: "radio", name: "pwned", value: "yes", checked: false}
+  %br
+  %input{type: "submit", value: "Submit"}

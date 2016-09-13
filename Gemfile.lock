@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    encrypted_cookie (0.0.4)
     haml (4.0.7)
       tilt
     rack (1.6.4)
@@ -16,5 +17,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  encrypted_cookie
   haml
   sinatra
+
+BUNDLED WITH
+   1.10.6

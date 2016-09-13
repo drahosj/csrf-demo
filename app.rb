@@ -1,7 +1,11 @@
 require 'sinatra'
 require 'haml'
+require 'encrypted_cookie'
 
-set :sessions, httponly: true, secure: true, expire_after: 600, secret: "hunter2"
+use Rack::Session::EncryptedCookie, 
+  httponly: false,
+  path: '/',
+  secret: 'hunter2hunter2hunter2hunter2'
 
 get '/' do
   if session[:exists].nil?
@@ -10,10 +14,21 @@ get '/' do
     haml :pwned
   else
     haml :normal
+  end
+end
+
+get '/submit' do
+  if params[:pwned] == "yes"
+    session[:pwned] = true
+  end
+
+  redirect to '/'
 end
 
 post '/reset' do
   session.clear
   session[:exists] = true
   session[:pwned] = false
+
+  redirect to '/'
 end
